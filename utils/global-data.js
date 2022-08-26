@@ -1,17 +1,12 @@
 export const getGlobalData = () => {
-  const name = process.env.BLOG_NAME
-    ? decodeURI(process.env.BLOG_NAME)
-    : "ABC's of Netlify"
-  const blogTitle = process.env.BLOG_TITLE
+  const title = process.env.BLOG_TITLE
     ? decodeURI(process.env.BLOG_TITLE)
     : "ABC's of Netlify"
-  // const footerText = process.env.BLOG_FOOTER_TEXT
-  //   ? decodeURI(process.env.BLOG_FOOTER_TEXT)
-  //   : ""
-
+  const description = process.env.BLOG_DESCRIPTION
+    ? decodeURI(process.env.BLOG_DESCRIPTION)
+    : "The ABC's of Netlify is something to learn about Netlify for every letter of the alphabet."
   return {
-    name,
-    blogTitle,
-    // footerText,
+    title,
+    description
   }
 }

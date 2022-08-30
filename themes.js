@@ -1,6 +1,11 @@
 exports.COLOR_THEMES = {
   default: {
-    colors: {
+    colors: { // rgb(48, 17, 108) purple, rgb(93, 169, 186) blue, rgb(234, 155, 93) orange, rgb(255, 255, 255) white, rgb(0, 0, 0) black
+      white: '#ffffff',
+      black: '#000000',
+      purple: 'rgb(48, 17, 108)',
+      blue: 'rgb(93, 169, 186)',
+      orange: 'rgb(234, 155, 93)',
       primary: '#7D7AFF',
       'gradient-1': '#7d7aff',
       'gradient-2': '#2121e2',
@@ -44,10 +49,10 @@ exports.COLOR_THEMES = {
       'gradient-4': '#FFCC81',
     },
   },
-};
+}
 
 exports.FONT_THEMES = {
   'sans-serif': `ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"`,
   serif: `ui-serif, Georgia, Cambria, "Times New Roman", Times, serif`,
   monospace: `ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace`,
-};
+}

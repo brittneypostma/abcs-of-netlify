@@ -44,3 +44,9 @@
   filter: blur(44px);
   z-index: -1;
 }
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+

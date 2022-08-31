@@ -1,41 +1,12 @@
-.wrapper {
+.linkLetter {
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.aside {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  flex-basis: 20rem;
-  flex-grow: 1;
-  background: black;
-  color: white;
-  height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
-.asideContainer {
-  padding: 2rem;
-}
-
-@media (max-width: 835px) {
-  .aside {
-    height: 10rem;
-  }
+  align-items: center;
 }
 
 .main {
   flex-basis: 0;
   flex-grow: 999;
   min-inline-size: 500px;
-}
-
-.linkLetter {
-  display: flex;
-  align-items: center;
 }
 
 .main li:nth-child(even) .linkLetter {

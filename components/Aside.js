@@ -1,12 +1,15 @@
 import Link from 'next/link';
+import styles from './aside.module.css';
 
 export default function Header() {
   return (
-    <aside className="fixed inset-0 h-full w-1/4 bg-black text-white my-color">
-      <div className="px-8 pb-8 absolute bottom-0 text-6xl leading-medium font-semibold">
+    <aside className={styles.aside}>
+      <div className={styles.asideContainer}>
         <Link href="/">
           <a>
-            ABCs <br /> of Netlify
+            <h1 className="md:text-4xl font-semibold">
+              ABCs <br /> of Netlify
+            </h1>
           </a>
         </Link>
       </div>

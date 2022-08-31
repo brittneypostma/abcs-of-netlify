@@ -1,0 +1,26 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  background-color: rebeccapurple;
+  color: white;
+}
+
+.main {
+  padding: 1.5rem;
+}
+
+.paginationWrapper {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3rem;
+  padding: 1.5rem;
+  position: absolute;
+  width: calc(100% - 20vw);
+  bottom: 0;
+}
+
+.paginationLink {
+  flex: 1;
+}

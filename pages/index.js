@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
 
 import Letter from '../components/Letter';
+import Aside from '../components/Aside';
 import Description from '../components/Description';
+import Layout from '../components/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
 import styles from './home.module.css';
@@ -10,19 +12,9 @@ import styles from './home.module.css';
 export default function Index({ posts, globalData }) {
   const { title, description } = globalData;
   return (
-    <div className={styles.wrapper}>
+    <Layout>
       <SEO title={title} description={description} />
-      <aside className={styles.aside}>
-        <div className={styles.asideContainer}>
-          <Link href="/">
-            <a>
-              <h1 className="md:text-4xl font-semibold">
-                ABCs <br /> of Netlify
-              </h1>
-            </a>
-          </Link>
-        </div>
-      </aside>
+      <Aside />
       <main className={styles.main}>
         <ul className="list">
           {posts.map((post, idx) => (
@@ -42,7 +34,7 @@ export default function Index({ posts, globalData }) {
           ))}
         </ul>
       </main>
-    </div>
+    </Layout>
   );
 }
 

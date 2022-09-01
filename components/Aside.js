@@ -1,18 +1,22 @@
-import Link from 'next/link';
-import styles from './aside.module.css';
+import Link from 'next/link'
+import styles from './aside.module.css'
 
-export default function Header() {
+export default function Header({ heading }) {
   return (
     <aside className={styles.aside}>
       <div className={styles.asideContainer}>
         <Link href="/">
-          <a>
-            <h1 className="md:text-4xl font-semibold">
-              ABCs <br /> of Netlify
-            </h1>
-          </a>
+          {heading ? (
+            <a>
+              <h1 className={styles.title}>
+                ABCs <br /> of Netlify
+              </h1>
+            </a>
+          ) : (
+            <a className={styles.title}>ABCs <br /> of Netlify</a>
+          )}
         </Link>
       </div>
     </aside>
-  );
+  )
 }

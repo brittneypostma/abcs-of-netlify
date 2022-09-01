@@ -1,14 +1,21 @@
-.linkLetter {
-  display: flex;
-  align-items: center;
-}
-
 .main {
   flex-basis: 0;
   flex-grow: 999;
   min-inline-size: 500px;
 }
 
-.main li:nth-child(even) .linkLetter {
+.row {
+  display: flex;
+}
+
+.row:nth-child(even) {
+  background-color: whitesmoke;
   flex-direction: row-reverse;
+}
+
+.link {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
 }

@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import styles from './aside.module.css'
+import Link from 'next/link';
+import styles from './Aside.module.css';
 
 export default function Header({ heading }) {
   return (
@@ -13,10 +13,12 @@ export default function Header({ heading }) {
               </h1>
             </a>
           ) : (
-            <a className={styles.title}>ABCs <br /> of Netlify</a>
+            <a className={styles.title}>
+              ABCs <br /> of Netlify
+            </a>
           )}
         </Link>
       </div>
     </aside>
-  )
+  );
 }

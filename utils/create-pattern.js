@@ -1,7 +1,7 @@
 import { createRandom } from '@georgedoescode/nugget';
 
 const baseFontSize = 16;
-const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!!!!!!!!'.split('');
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!!!!!!!!+-='.split('');
 
 let backgroundColor = '#fff';
 
@@ -111,6 +111,7 @@ function squiggle(ctx, cx, cy, radius, rotate, color) {
 
   ctx.lineWidth = radius / 8;
 
+  ctx.strokeStyle = color;
   ctx.stroke();
 }
 
@@ -133,8 +134,6 @@ function createPattern(ctx, rects, seed) {
   ];
 
   rects.forEach((r) => {
-    ctx.lineWidth = 1;
-    // ctx.strokeRect(r.x, r.y, r.width, r.height);
     const random = createRandom(r.id);
 
     const option = options[random(0, options.length - 1, 1)];

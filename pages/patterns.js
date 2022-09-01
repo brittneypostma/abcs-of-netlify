@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { createLayout, createRandom } from '@georgedoescode/nugget';
+import { createLayout } from '@georgedoescode/nugget';
 import { createPattern } from '../utils/create-pattern';
 
 export const getStaticProps = async () => {
@@ -16,7 +16,7 @@ export default function Patterns() {
     createLayout('section', {
       layoutWidth: 1920,
       layoutHeight: 1920,
-      minContentGap: 64,
+      minContentGap: 48,
       minPatternGap: 8,
       cellDimensions: {
         min: 16,
@@ -32,7 +32,7 @@ export default function Patterns() {
 
         ctx.scale(dpr, dpr);
 
-        createPattern(ctx, layout.rects, 123456);
+        createPattern(ctx, layout.rects);
 
         canvas.toBlob((blob) => {
           const url = URL.createObjectURL(blob);
@@ -46,17 +46,48 @@ export default function Patterns() {
   }, []);
 
   return (
-    <section
-      style={{
-        width: '100vw',
-        height: '100vh',
-        display: 'grid',
-        placeItems: 'center',
-      }}
-    >
-      <h1 data-track-bounds style={{ fontSize: '3rem' }}>
-        Hey there!
-      </h1>
-    </section>
+    <>
+      <section
+        style={{
+          minHeight: '100vh',
+          display: 'grid',
+          placeItems: 'center',
+        }}
+      >
+        <h1
+          data-track-bounds
+          style={{
+            fontSize: '3rem',
+            margin: '50vh 0',
+          }}
+        >
+          Hey there!
+        </h1>
+        <p data-track-bounds style={{ maxWidth: '60ch', margin: '25vh 0' }}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+        <p data-track-bounds style={{ maxWidth: '60ch', margin: '25vh 0' }}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+        <p data-track-bounds style={{ maxWidth: '60ch', margin: '25vh 0' }}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+        <p data-track-bounds style={{ maxWidth: '60ch', margin: '25vh 0' }}>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s, when an unknown printer took a galley of type and
+          scrambled it to make a type specimen book.
+        </p>
+      </section>
+    </>
   );
 }

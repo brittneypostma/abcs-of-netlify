@@ -47,7 +47,11 @@ export default function Letter({ letter }) {
     >
       <div className={styles.wrapper}>
         {Array.from({ length: 12 }, (_, i) => (
-          <div aria-hidden={i !== 0 ? true : null} className={styles.letter}>
+          <div
+            aria-hidden={i !== 0 ? true : null}
+            className={styles.letter}
+            key={i}
+          >
             {letter}
           </div>
         ))}

@@ -25,28 +25,14 @@
   --m: 0.4;
 
   position: relative;
+  overflow: hidden;
   flex-shrink: 0;
   inline-size: var(--box-size);
   aspect-ratio: 0.7;
+  background-color: #0173fc;
   transform: translateZ(0);
   transform-style: preserve-3d;
-  overflow: hidden;
-}
-
-.box::before {
-  --offset: 5rem;
-  --size: calc(100% + var(--offset));
-  content: '';
-  display: block;
-  width: var(--size);
-  height: var(--size);
-  background-color: #0173fc;
-  transform: translateZ(calc(var(--offset) * -1));
   transition: background-color 200ms ease-out;
-}
-
-.box:hover::before {
-  background-color: #03203f;
 }
 
 .wrapper {
@@ -55,7 +41,6 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: auto;
   display: grid;
   grid-template-areas: 'container';
   place-items: center;
@@ -139,6 +124,10 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .box:hover {
+    background-color: #03203f;
+  }
+
   .box:hover .wrapper {
     --translate: rotateX(calc(var(--y) / var(--t) * -1deg))
       rotateY(calc(var(--x) / var(--t) * 1deg));

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import styles from './aside.module.css';
+import styles from './Aside.module.css';
 
 export default function Header() {
   return (

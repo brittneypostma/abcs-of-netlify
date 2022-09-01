@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
 
-import Letter from '../components/Letter';
-import Aside from '../components/Aside';
+import Letter from '../components/Letter/Letter';
+import Aside from '../components/Aside/Aside';
 import Description from '../components/Description';
-import Layout from '../components/Layout';
+import Layout from '../components/Layout/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
 import styles from './home.module.css';
@@ -17,17 +17,15 @@ export default function Index({ posts, globalData }) {
       <Aside />
       <main className={styles.main}>
         <ul className="list">
-          {posts.map((post, idx) => (
-            <li key={post.filePath} className="">
+          {posts.map((post) => (
+            <li className={styles.row} key={post.filePath}>
+              <Letter />
               <Link
                 as={`/${post.filePath.replace(/\.mdx?$/, '')}`}
                 href={`/[slug]`}
               >
-                <a className={styles.linkLetter}>
-                  <Letter>{post.data.title}</Letter>
-                  {post.data.description ? (
-                    <Description>{post.data.description}</Description>
-                  ) : null}
+                <a className={styles.link}>
+                  {post.data.description ? post.data.description : null}
                 </a>
               </Link>
             </li>

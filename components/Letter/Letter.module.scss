@@ -1,0 +1,114 @@
+@use 'sass:math';
+
+.box {
+  --color-1: #03203f;
+  --color-2: #0173fc;
+  --color-3: #8f2ca6;
+  --color-4: #db3c39;
+  --color-5: #feb201;
+  --color-6: #ffffff;
+  --color-7: #0173fc;
+  --color-8: #8f2ca6;
+  --color-9: #db3c39;
+  --color-10: #feb201;
+  --color-11: #03203f;
+  --color-12: #ffffff;
+
+  --ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --duration: 250ms;
+  --delay-offset: 0.08s;
+  --x: 0;
+  --y: 0;
+  --t: 8;
+  --m: 0.4;
+
+  perspective: 50rem;
+  display: grid;
+  grid-template-areas: 'container';
+  place-items: center;
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  overflow: hidden;
+}
+
+.box::before {
+  --offset: 5rem;
+  --size: calc(100% + var(--offset));
+  content: '';
+  grid-area: container;
+  display: block;
+  width: var(--size);
+  height: var(--size);
+  background-color: #0173fc;
+  transform: translateZ(calc(var(--offset) * -1));
+  transition: background-color 200ms ease-out;
+  pointer-events: none;
+}
+
+.box:hover::before {
+  background-color: #03203f;
+}
+
+.box svg {
+  overflow: visible;
+  grid-area: container;
+  font-family: 'Bungee Inline', serif;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  transform-style: preserve-3d;
+  perspective: 50rem;
+  transition: transform calc(var(--duration) * 1.5)
+    cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.box text {
+  transform-origin: center;
+  transform-style: preserve-3d;
+  transition: transform var(--duration) var(--ease);
+}
+
+@for $i from 1 through 12 {
+  .box text:nth-child(#{$i}) {
+    --t: #{calc(#{$i} * var(--m))};
+    --delay: #{calc(#{$i} * var(--delay-offset))};
+  }
+}
+
+@keyframes rainbowfy {
+  @for $i from 1 through 12 {
+    #{math.ceil(8.33% * $i)} {
+      fill: var(--color-#{$i});
+    }
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .box:hover svg {
+    --translate: rotateX(calc(var(--y) / var(--t) * -1deg))
+      rotateY(calc(var(--x) / var(--t) * 1deg));
+    transform: var(--translate);
+  }
+
+  .box:hover text {
+    --translate: translate(
+      calc(var(--x) / var(--t) * -1px),
+      calc(var(--y) / var(--t) * -1px)
+    );
+    transform: var(--translate);
+  }
+
+  .box:active svg {
+    transform: var(--translate) scale(1.6);
+  }
+
+  .box:active text {
+    transform: var(--translate)
+      rotate(calc(var(--x) / var(--t) * var(--m) * -3deg));
+  }
+
+  .box:active text:not(:last-child) {
+    animation: rainbowfy 4s var(--delay) ease infinite;
+  }
+}

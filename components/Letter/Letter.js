@@ -33,10 +33,15 @@ export default function Letter({ letter }) {
     });
   };
 
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div
       ref={boxEl}
       className={styles.box}
+      onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseOut={handleMouseOut}
     >

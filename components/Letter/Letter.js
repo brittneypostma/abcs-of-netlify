@@ -41,8 +41,10 @@ export default function Letter({ letter }) {
       onMouseOut={handleMouseOut}
     >
       <div className={styles.wrapper}>
-        {Array.from({ length: 12 }, () => (
-          <div className={styles.letter}>{letter}</div>
+        {Array.from({ length: 12 }, (_, i) => (
+          <div aria-hidden={i !== 0 ? true : null} className={styles.letter}>
+            {letter}
+          </div>
         ))}
       </div>
     </div>

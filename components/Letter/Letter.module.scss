@@ -14,7 +14,9 @@
   --color-11: #03203f;
   --color-12: #ffffff;
 
+  --box-size: 15rem;
   --ease: cubic-bezier(0.33, 1, 0.68, 1);
+  --bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
   --duration: 250ms;
   --delay-offset: 0.08s;
   --x: 0;
@@ -22,10 +24,10 @@
   --t: 8;
   --m: 0.4;
 
-  perspective: 50rem;
-  display: grid;
-  grid-template-areas: 'container';
-  place-items: center;
+  position: relative;
+  flex-shrink: 0;
+  inline-size: var(--box-size);
+  aspect-ratio: 0.7;
   transform: translateZ(0);
   transform-style: preserve-3d;
   overflow: hidden;
@@ -35,80 +37,132 @@
   --offset: 5rem;
   --size: calc(100% + var(--offset));
   content: '';
-  grid-area: container;
   display: block;
   width: var(--size);
   height: var(--size);
   background-color: #0173fc;
   transform: translateZ(calc(var(--offset) * -1));
   transition: background-color 200ms ease-out;
-  pointer-events: none;
 }
 
 .box:hover::before {
   background-color: #03203f;
 }
 
-.box svg {
-  overflow: visible;
-  grid-area: container;
+.wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  display: grid;
+  grid-template-areas: 'container';
+  place-items: center;
+  place-content: center;
   font-family: 'Bungee Inline', serif;
   width: 100%;
-  height: auto;
+  height: 100%;
   pointer-events: none;
   user-select: none;
   transform-style: preserve-3d;
   perspective: 50rem;
-  transition: transform calc(var(--duration) * 1.5)
-    cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.box text {
+.wrapper {
+  font-size: calc(var(--box-size) * 2);
   transform-origin: center;
   transform-style: preserve-3d;
+  transition: transform calc(var(--duration) * 1.5) var(--bounce);
+}
+
+.letter {
+  grid-area: container;
+  -webkit-text-stroke: 0.02em var(--color-1);
+  text-stroke: 0.02em var(--color-1);
+  transform: translate3d(0, 0, 0);
   transition: transform var(--duration) var(--ease);
 }
 
+.letter:nth-child(1) {
+  font-size: 1em;
+}
+.letter:nth-child(2) {
+  font-size: 0.9em;
+}
+.letter:nth-child(3) {
+  font-size: 0.8em;
+}
+.letter:nth-child(4) {
+  font-size: 0.7em;
+}
+.letter:nth-child(5) {
+  font-size: 0.6em;
+}
+.letter:nth-child(6) {
+  font-size: 0.5em;
+}
+.letter:nth-child(7) {
+  font-size: 0.4em;
+}
+.letter:nth-child(8) {
+  font-size: 0.35em;
+}
+.letter:nth-child(9) {
+  font-size: 0.3em;
+}
+.letter:nth-child(10) {
+  font-size: 0.25em;
+}
+.letter:nth-child(11) {
+  font-size: 0.2em;
+}
+.letter:nth-child(12) {
+  font-size: 0.15em;
+}
+
 @for $i from 1 through 12 {
-  .box text:nth-child(#{$i}) {
-    --t: #{calc(#{$i} * var(--m))};
+  .letter:nth-child(#{$i}) {
+    color: var(--color-#{$i});
+    --t: #{calc(#{$i} / var(--m))};
+    --z: #{calc(10px * #{$i})};
     --delay: #{calc(#{$i} * var(--delay-offset))};
   }
 }
 
-@keyframes rainbowfy {
+@keyframes colorfy {
   @for $i from 1 through 12 {
     #{math.ceil(8.33% * $i)} {
-      fill: var(--color-#{$i});
+      color: var(--color-#{$i});
     }
   }
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .box:hover svg {
+  .box:hover .wrapper {
     --translate: rotateX(calc(var(--y) / var(--t) * -1deg))
       rotateY(calc(var(--x) / var(--t) * 1deg));
     transform: var(--translate);
   }
 
-  .box:hover text {
-    --translate: translate(
+  .box:hover .letter {
+    --translate: translate3d(
       calc(var(--x) / var(--t) * -1px),
-      calc(var(--y) / var(--t) * -1px)
+      calc(var(--y) / var(--t) * -1px),
+      var(--z)
     );
     transform: var(--translate);
   }
 
-  .box:active svg {
-    transform: var(--translate) scale(1.6);
+  .box:active .wrapper {
+    transform: var(--translate) scale(2);
   }
 
-  .box:active text {
-    transform: var(--translate)
-      rotate(calc(var(--x) / var(--t) * var(--m) * -3deg));
+  .box:active .letter {
+    transform: var(--translate) rotate(calc(var(--x) / var(--t) * -5deg));
   }
 
-  .box:active text:not(:last-child) {
-    animation: rainbowfy 4s var(--delay) ease infinite;
+  .box:active .letter:not(:last-child) {
+    animation: colorfy 4s var(--delay) ease infinite;
   }
 }

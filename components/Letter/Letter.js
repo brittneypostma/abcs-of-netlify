@@ -1,8 +1,7 @@
 import { useRef } from 'react';
 import styles from './Letter.module.scss';
-import A from '../../svg/a.svg';
 
-export default function Letter() {
+export default function Letter({ letter }) {
   const boxEl = useRef(null);
 
   const handleMouseMove = (e) => {
@@ -22,9 +21,30 @@ export default function Letter() {
     );
   };
 
+  const handleMouseOut = () => {
+    if (!boxEl?.current) {
+      return;
+    }
+
+    boxEl.current.addEventListener('mouseleave', () => {
+      boxEl.current.style.setProperty('--x', 0);
+      boxEl.current.style.setProperty('--y', 0);
+      boxEl.current.style.setProperty('--z', 0);
+    });
+  };
+
   return (
-    <div ref={boxEl} onMouseMove={handleMouseMove} className={styles.box}>
-      <A />
+    <div
+      ref={boxEl}
+      className={styles.box}
+      onMouseMove={handleMouseMove}
+      onMouseOut={handleMouseOut}
+    >
+      <div className={styles.wrapper}>
+        {Array.from({ length: 12 }, () => (
+          <div className={styles.letter}>{letter}</div>
+        ))}
+      </div>
     </div>
   );
 }

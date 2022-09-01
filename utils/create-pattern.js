@@ -115,7 +115,7 @@ function squiggle(ctx, cx, cy, radius, rotate, color) {
   ctx.stroke();
 }
 
-function createPattern(ctx, rects, seed) {
+function createPattern(ctx, rects) {
   ctx.font = `900 ${baseFontSize}px Pacaembu`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
@@ -127,7 +127,6 @@ function createPattern(ctx, rects, seed) {
     'rect',
     'circle',
     'halfCircle',
-
     'line',
     'triangle',
     'squiggle',
@@ -142,7 +141,7 @@ function createPattern(ctx, rects, seed) {
     const cy = r.y + r.height / 2;
     const radius = Math.min(r.width, r.height);
 
-    const color = '#000';
+    const color = 'hsla(0, 100%, 0%, 1)';
 
     switch (option) {
       case 'rect':

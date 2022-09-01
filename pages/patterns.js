@@ -14,13 +14,13 @@ export default function Patterns() {
     const ctx = canvas.getContext('2d');
 
     createLayout('section', {
-      layoutWidth: 1920,
-      layoutHeight: 1920,
+      layoutWidth: document.body.offsetWidth,
+      layoutHeight: document.body.offsetHeight,
       minContentGap: 48,
       minPatternGap: 8,
       cellDimensions: {
-        min: 16,
-        max: 128,
+        min: 8,
+        max: 256,
       },
       fillIterations: 20_000,
       seed: Math.random() * 100_000,

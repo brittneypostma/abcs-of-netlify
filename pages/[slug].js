@@ -9,13 +9,13 @@ import {
 import { MDXRemote } from 'next-mdx-remote';
 import Head from 'next/head';
 import Link from 'next/link';
-import Aside from '../components/Aside';
+import Aside from '../components/Aside/Aside';
 import ArrowIcon from '../components/ArrowIcon';
 import CustomLink from '../components/CustomLink';
 import Video from '../components/Video';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
-import Layout, { GradientBackground } from '../components/Layout';
+import Layout, { GradientBackground } from '../components/Layout/Layout';
 import SEO from '../components/SEO';
 import homeStyles from './home.module.css';
 import styles from './letter-page.module.css';

@@ -46,7 +46,7 @@ export default function Header({ heading }) {
             </h1>
           </a>
         ) : (
-          <a className={styles.title} data-track-bounds>
+          <a className={styles.title}>
             <span data-track-bounds>ABCs</span> <br />
             <span data-track-bounds>of Netlify</span>
           </a>

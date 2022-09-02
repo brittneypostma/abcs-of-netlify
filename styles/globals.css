@@ -18,6 +18,16 @@ body,
   height: 100%;
 }
 
+html {
+  scroll-padding-top: 48px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 body {
   font-family: Mulish;
 }

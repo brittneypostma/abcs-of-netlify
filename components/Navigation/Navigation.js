@@ -1,5 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
-
+import cn from 'classnames';
 import styles from './Navigation.module.scss';
 import NetlifyGem from '../NetlifyGem/NetlifyGem';
 
@@ -7,10 +8,10 @@ export default function Navigation({ items, hrefType }) {
   return (
     <nav className={styles.nav}>
       <ul className={styles.menu}>
-        <li className="flex">
+        <li className={styles.item}>
           <Link href="/">
-            <a className={styles.logo}>
-              <NetlifyGem />
+            <a className={cn(styles.link, styles.logo)}>
+              <Image src="/netlify-logo.svg" alt="" width="30" height="30" />
             </a>
           </Link>
         </li>

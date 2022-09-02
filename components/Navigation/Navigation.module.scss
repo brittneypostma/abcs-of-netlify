@@ -12,20 +12,27 @@
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
+  overscroll-behavior: contain;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .item:hover .link {
+  .item:hover .link:not(.logo) {
     transform: scale(1.4);
   }
 }
 
+.item {
+  display: flex;
+  align-items: center;
+  flex: 1 0 auto;
+  line-height: 1;
+}
+
 .link {
   display: block;
-  padding: 0.5rem 1rem 0.65rem;
+  padding: 0.5rem 1rem;
   font-weight: 700;
   font-family: 'Pacaembu';
-  line-height: normal;
   color: white;
   transition: transform 100ms ease-out;
 }
@@ -35,6 +42,5 @@
 }
 
 .logo {
-  display: flex;
-  margin-left: .5rem;
+  margin-inline-end: -0.5rem;
 }

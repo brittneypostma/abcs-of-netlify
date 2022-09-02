@@ -1,8 +1,6 @@
-.article {
-  flex-basis: 0;
-  flex-grow: 999;
-  min-inline-size: 65%;
-  min-height: 100vh;
+.main {
+  grid-area: main;
+  overflow-y: auto;
 }
 
 .markdown {
@@ -24,7 +22,7 @@
   width: 100%;
 }
 
-.main {
+.article {
   padding: 1.5rem;
   max-width: 65ch;
   margin-inline: auto;

@@ -1,9 +1,7 @@
 import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
-
 import Letter from '../components/Letter/Letter';
 import Aside from '../components/Aside/Aside';
-import Description from '../components/Description';
 import Layout from '../components/Layout/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
@@ -15,7 +13,7 @@ export default function Index({ posts, globalData }) {
   return (
     <Layout>
       <SEO title={title} description={description} />
-      <Navigation items={posts} />
+      <Navigation items={posts} hrefType="anchor" />
       <Aside heading={true} />
       <main className={styles.main}>
         <div className={styles.videoWrapper}>

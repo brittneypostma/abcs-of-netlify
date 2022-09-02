@@ -1,5 +1,6 @@
 import { getGlobalData } from '../utils/global-data';
 import {
+  getPosts,
   getNextPostBySlug,
   getPostBySlug,
   getPreviousPostBySlug,
@@ -14,12 +15,11 @@ import Aside from '../components/Aside/Aside';
 import ArrowIcon from '../components/ArrowIcon';
 import CustomLink from '../components/CustomLink';
 import Video from '../components/Video';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import Layout, { GradientBackground } from '../components/Layout/Layout';
+import Layout from '../components/Layout/Layout';
 import SEO from '../components/SEO';
 import styles from './letter-page.module.css';
 import Letter from '../components/Letter/Letter';
+import Navigation from '../components/Navigation/Navigation';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -35,6 +35,7 @@ const components = {
 };
 
 export default function PostPage({
+  posts,
   source,
   frontMatter,
   prevPost,
@@ -47,12 +48,13 @@ export default function PostPage({
         title={`${frontMatter.title} - ${globalData.name}`}
         description={frontMatter.description}
       />
+      <Navigation items={posts} hrefType="url" />
       <Aside />
-      <article className={styles.article}>
+      <main className={styles.main}>
         <header className={styles.header}>
           <Letter className={styles.letter} letter={frontMatter.title} />
         </header>
-        <main className={styles.main}>
+        <article className={styles.article}>
           <article className={styles.markdown}>
             {frontMatter.description && (
               <p className="text-3xl font-semibold mb-4">
@@ -61,7 +63,7 @@ export default function PostPage({
             )}
             <MDXRemote {...source} components={components} />
           </article>
-        </main>
+        </article>
         <div className={styles.paginationWrapper}>
           {prevPost && (
             <Link href={`/${prevPost.slug}`}>
@@ -95,12 +97,13 @@ export default function PostPage({
             </Link>
           )}
         </div>
-      </article>
+      </main>
     </Layout>
   );
 }
 
 export const getStaticProps = async ({ params }) => {
+  const posts = getPosts();
   const globalData = getGlobalData();
   const { mdxSource, data } = await getPostBySlug(params.slug);
   const prevPost = getNextPostBySlug(params.slug);
@@ -108,6 +111,7 @@ export const getStaticProps = async ({ params }) => {
 
   return {
     props: {
+      posts,
       globalData,
       source: mdxSource,
       frontMatter: data,

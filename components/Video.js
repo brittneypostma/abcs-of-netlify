@@ -1,15 +1,19 @@
+import BrowserBox from './BrowserBox/BrowserBox';
+
 export default function Video({ id }) {
   const videoId = id || 'COAVmST41Q0';
 
   return (
-    <iframe
-      width="560"
-      height="315"
-      src={`https://www.youtube.com/embed/${videoId}`}
-      title="YouTube video player"
-      frameBorder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
+    <BrowserBox>
+      <iframe
+        width="560"
+        height="315"
+        src={`https://www.youtube.com/embed/${videoId}`}
+        title="YouTube video player"
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+    </BrowserBox>
   );
 }

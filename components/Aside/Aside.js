@@ -39,14 +39,16 @@ export default function Header({ heading }) {
     <aside className={styles.aside}>
       <Link href="/">
         {heading ? (
-          <a >
-            <h1 className={styles.title} data-track-bounds>
-              ABCs <br /> of Netlify
+          <a>
+            <h1 className={styles.title}>
+              <span data-track-bounds>ABCs</span> <br />
+              <span data-track-bounds>of Netlify</span>
             </h1>
           </a>
         ) : (
           <a className={styles.title} data-track-bounds>
-            ABCs <br /> of Netlify
+            <span data-track-bounds>ABCs</span> <br />
+            <span data-track-bounds>of Netlify</span>
           </a>
         )}
       </Link>

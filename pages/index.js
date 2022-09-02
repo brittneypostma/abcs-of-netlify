@@ -16,6 +16,19 @@ export default function Index({ posts, globalData }) {
       <SEO title={title} description={description} />
       <Aside heading={true} />
       <main className={styles.main}>
+        <div className={styles.videoWrapper}>
+          <video
+            width="100%"
+            preload="metadata"
+            className={styles.video}
+            autoPlay
+            muted
+            playsInline
+          >
+            <source src="/video/intro.mp4" type="video/mp4" />
+            Sorry, your browser doesn’t support embedded videos.
+          </video>
+        </div>
         <ul className="list">
           {posts.map((post) => (
             <li className={styles.row} key={post.filePath}>

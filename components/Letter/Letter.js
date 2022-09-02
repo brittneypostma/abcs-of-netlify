@@ -1,8 +1,8 @@
 import { useRef } from 'react';
+import cn from 'classnames';
 import styles from './Letter.module.scss';
-import A from '../../svg/a.svg';
 
-export default function Letter() {
+export default function Letter({ letter, className }) {
   const boxEl = useRef(null);
 
   const handleMouseMove = (e) => {
@@ -22,9 +22,41 @@ export default function Letter() {
     );
   };
 
+  const handleMouseOut = () => {
+    if (!boxEl?.current) {
+      return;
+    }
+
+    boxEl.current.addEventListener('mouseleave', () => {
+      boxEl.current.style.setProperty('--x', 0);
+      boxEl.current.style.setProperty('--y', 0);
+      boxEl.current.style.setProperty('--z', 0);
+    });
+  };
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+  };
+
   return (
-    <div ref={boxEl} onMouseMove={handleMouseMove} className={styles.box}>
-      <A />
+    <div
+      ref={boxEl}
+      className={cn(styles.box, className)}
+      onMouseDown={handleMouseDown}
+      onMouseMove={handleMouseMove}
+      onMouseOut={handleMouseOut}
+    >
+      <div className={styles.wrapper}>
+        {Array.from({ length: 12 }, (_, i) => (
+          <div
+            aria-hidden={i !== 0 ? true : null}
+            className={styles.letter}
+            key={i}
+          >
+            {letter}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

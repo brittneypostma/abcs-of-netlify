@@ -2,13 +2,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20vh;
+  height: max(25vh, 10rem);
   background-color: rebeccapurple;
   color: white;
+  overflow: hidden;
+}
+
+.letter {
+  width: 100%;
 }
 
 .main {
   padding: 1.5rem;
+  max-width: 65ch;
+  margin-inline: auto;
 }
 
 .paginationWrapper {

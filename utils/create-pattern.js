@@ -3,13 +3,15 @@ import { createRandom } from '@georgedoescode/nugget';
 const baseFontSize = 16;
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!!!!!!!!+-='.split('');
 
-let backgroundColor = '#000';
+let backgroundColor = '#03203F';
 
 function degreesToRadians(degrees) {
   return degrees * (Math.PI / 180);
 }
 
 function rect(ctx, cx, cy, width, height, rotate, color) {
+  ctx.fillStyle = color;
+
   ctx.save();
   ctx.translate(cx, cy);
   ctx.scale(0.725, 0.725);
@@ -17,20 +19,22 @@ function rect(ctx, cx, cy, width, height, rotate, color) {
   ctx.beginPath();
   ctx.rect(-width / 2, -height / 2, width, height);
   ctx.restore();
-
-  ctx.fillStyle = color;
+ 
   ctx.fill();
 }
 
 function circle(ctx, cx, cy, radius, color) {
+  ctx.fillStyle = color;
+
   ctx.beginPath();
   ctx.arc(cx, cy, radius / 2, 0, Math.PI * 2);
 
-  ctx.fillStyle = color;
   ctx.fill();
 }
 
 function halfCircle(ctx, cx, cy, radius, rotate, color, outline) {
+  ctx.fillStyle = color;
+
   ctx.save();
   ctx.translate(cx, cy);
   ctx.rotate(degreesToRadians(rotate));
@@ -40,7 +44,6 @@ function halfCircle(ctx, cx, cy, radius, rotate, color, outline) {
 
   ctx.restore();
 
-  ctx.fillStyle = color;
   ctx.fill();
 
   if (outline) {
@@ -52,6 +55,8 @@ function halfCircle(ctx, cx, cy, radius, rotate, color, outline) {
 }
 
 function letter(ctx, cx, cy, letter, radius, rotate, color) {
+  ctx.fillStyle = color;
+
   ctx.save();
   ctx.translate(cx, cy);
   ctx.rotate(degreesToRadians(rotate));
@@ -60,11 +65,13 @@ function letter(ctx, cx, cy, letter, radius, rotate, color) {
   ctx.fillText(letter, 0, 0);
   ctx.restore();
 
-  ctx.fillStyle = color;
+  
   ctx.fill();
 }
 
 function line(ctx, cx, cy, radius, rotate, color) {
+  ctx.fillStyle = color;
+
   const width = radius;
   const height = width / 4;
 
@@ -74,12 +81,13 @@ function line(ctx, cx, cy, radius, rotate, color) {
   ctx.rotate(degreesToRadians(rotate));
   ctx.rect(-width / 2, -height / 2, width, height);
   ctx.restore();
-
-  ctx.fillStyle = color;
+  
   ctx.fill();
 }
 
 function triangle(ctx, cx, cy, radius, rotate, color) {
+  ctx.fillStyle = color;
+
   ctx.save();
   ctx.translate(cx, cy);
   ctx.rotate(degreesToRadians(rotate));
@@ -91,12 +99,13 @@ function triangle(ctx, cx, cy, radius, rotate, color) {
   ctx.closePath();
   ctx.restore();
 
-  ctx.fillStyle = color;
   ctx.fill();
 }
 
 function squiggle(ctx, cx, cy, radius, rotate, color) {
   const segmentSize = radius / 4;
+
+  ctx.strokeStyle = color;
 
   ctx.save();
   ctx.translate(cx, cy);
@@ -110,8 +119,7 @@ function squiggle(ctx, cx, cy, radius, rotate, color) {
   ctx.restore();
 
   ctx.lineWidth = radius / 8;
-
-  ctx.strokeStyle = color;
+  
   ctx.stroke();
 }
 
@@ -141,7 +149,14 @@ function createPattern(ctx, rects) {
     const cy = r.y + r.height / 2;
     const radius = Math.min(r.width, r.height);
 
-    const color = 'hsla(0, 100%, 100%, 0.25)';
+    const opacity = 0.75;
+
+    const color = [
+      `hsla(0, 100%, 100%, ${opacity})`,
+      `hsla(326, 100%, 71%, ${opacity}`,
+      `hsla(42, 99%, 50%, ${opacity})`,
+      `hsla(213, 99%, 50%, ${opacity})`
+    ][random(0, 3, 1)]
 
     switch (option) {
       case 'rect':

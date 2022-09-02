@@ -11,11 +11,11 @@ export default function Header({ heading }) {
     const ctx = canvas.getContext('2d');
 
     createLayout('aside', {
-      minContentGap: 16,
+      minContentGap: 1,
       minPatternGap: 8,
       cellDimensions: {
-        min: 12,
-        max: 12,
+        min: 4,
+        max: 16,
       },
       fillIterations: 20_000,
       seed: 123456,
@@ -39,13 +39,13 @@ export default function Header({ heading }) {
     <aside className={styles.aside}>
       <Link href="/">
         {heading ? (
-          <a data-track-bounds>
-            <h1 className={styles.title}>
+          <a >
+            <h1 className={styles.title} data-track-bounds>
               ABCs <br /> of Netlify
             </h1>
           </a>
         ) : (
-          <a data-track-bounds className={styles.title}>
+          <a className={styles.title} data-track-bounds>
             ABCs <br /> of Netlify
           </a>
         )}

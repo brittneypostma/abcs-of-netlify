@@ -1,11 +1,12 @@
 .main {
   flex-basis: 0;
   flex-grow: 999;
-  min-inline-size: 500px;
+  min-inline-size: 65%;
 }
 
 .row {
   display: flex;
+  overflow: hidden;
 }
 
 .row + .row {
@@ -14,6 +15,12 @@
 
 .row:nth-child(even) {
   flex-direction: row-reverse;
+}
+
+.letter {
+  overflow: hidden;
+  width: clamp(8rem, 20vw, 15rem);
+  aspect-ratio: 0.7;
 }
 
 .link {

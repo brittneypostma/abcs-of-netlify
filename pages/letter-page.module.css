@@ -4,15 +4,12 @@
   background-image: paint(photoCopy);
 }
 
-.article {
-  padding: 1.5rem;
-  max-width: 65ch;
-  margin-inline: auto;
-}
-
 .markdown {
   display: grid;
   gap: 1.5rem;
+  padding: 1.5rem;
+  max-width: 65ch;
+  margin-inline: auto;
 }
 
 .header {

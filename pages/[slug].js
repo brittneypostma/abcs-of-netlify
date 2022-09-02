@@ -54,13 +54,11 @@ export default function PostPage({
         <header className={styles.header}>
           <Letter className={styles.letter} letter={frontMatter.title} />
         </header>
-        <article className={styles.article}>
-          <article className={styles.markdown}>
-            {frontMatter.description && (
-              <h1 className={styles.title}>{frontMatter.description}</h1>
-            )}
-            <MDXRemote {...source} components={components} />
-          </article>
+        <article className={styles.markdown}>
+          {frontMatter.description && (
+            <h1 className={styles.title}>{frontMatter.description}</h1>
+          )}
+          <MDXRemote {...source} components={components} />
         </article>
         <div className={styles.paginationWrapper}>
           {prevPost && (

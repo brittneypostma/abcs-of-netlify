@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { createLayout } from '@georgedoescode/nugget';
+
 import { useEffect } from 'react';
 import styles from './Aside.module.css';
+import { createLayout } from '@georgedoescode/nugget';
 import { createPattern } from '../../utils/create-pattern';
 
 export default function Header({ heading }) {
@@ -9,19 +10,15 @@ export default function Header({ heading }) {
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
 
-    return;
-
     createLayout('aside', {
-      layoutWidth: 1920,
-      layoutHeight: 1920,
       minContentGap: 16,
       minPatternGap: 8,
       cellDimensions: {
-        min: 16,
-        max: 32,
+        min: 12,
+        max: 12,
       },
       fillIterations: 20_000,
-      seed: Math.random() * 100_000,
+      seed: 123456,
       onUpdate(layout, target) {
         const dpr = window.devicePixelRatio;
 
@@ -32,16 +29,12 @@ export default function Header({ heading }) {
 
         createPattern(ctx, layout.rects);
 
-        canvas.toBlob((blob) => {
-          const url = URL.createObjectURL(blob);
-
-          target.style.backgroundImage = `url(${url})`;
-          target.style.backgroundSize = '100%';
-          target.style.backgroundRepeat = 'no-repeat';
-        });
+        target.style.backgroundImage = `url(${canvas.toDataURL()})`;
+        target.style.backgroundSize = '100%';
+        target.style.backgroundRepeat = 'no-repeat';
       },
     });
-  }, []);
+  });
   return (
     <aside className={styles.aside}>
       <Link href="/">

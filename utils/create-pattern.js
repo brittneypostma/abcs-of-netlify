@@ -3,7 +3,7 @@ import { createRandom } from '@georgedoescode/nugget';
 const baseFontSize = 16;
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ!!!!!!!!+-='.split('');
 
-let backgroundColor = '#fff';
+let backgroundColor = '#000';
 
 function degreesToRadians(degrees) {
   return degrees * (Math.PI / 180);
@@ -141,7 +141,7 @@ function createPattern(ctx, rects) {
     const cy = r.y + r.height / 2;
     const radius = Math.min(r.width, r.height);
 
-    const color = 'hsla(0, 100%, 0%, 1)';
+    const color = 'hsla(0, 100%, 100%, 0.25)';
 
     switch (option) {
       case 'rect':

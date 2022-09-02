@@ -24,6 +24,7 @@
   --t: 8;
   --m: 0.4;
 
+  cursor: grab;
   position: relative;
   flex-shrink: 0;
   font-size: calc(var(--box-size) * 2);
@@ -35,11 +36,6 @@
 }
 
 .wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: grid;
   grid-template-areas: 'container';
   place-items: center;
@@ -135,6 +131,10 @@
       var(--z)
     );
     transform: var(--translate);
+  }
+
+  .box:active {
+    cursor: grabbing;
   }
 
   .box:active .wrapper {

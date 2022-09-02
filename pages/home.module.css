@@ -5,8 +5,10 @@
 }
 
 .row {
+  --padding: clamp(1rem, 10vw, 3rem);
   display: flex;
   overflow: hidden;
+  gap: var(--padding);
 }
 
 .row + .row {
@@ -18,8 +20,7 @@
 }
 
 .letter {
-  overflow: hidden;
-  width: clamp(8rem, 20vw, 15rem);
+  --box-size: clamp(8rem, 15vw, 15rem);
   aspect-ratio: 0.7;
 }
 

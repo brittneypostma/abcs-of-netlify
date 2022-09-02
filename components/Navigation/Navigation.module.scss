@@ -29,3 +29,7 @@
   color: white;
   transition: transform 100ms ease-out;
 }
+
+.link:focus-visible {
+  outline-offset: -4px;
+}

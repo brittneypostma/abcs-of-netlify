@@ -29,7 +29,7 @@ export default function Index({ posts, globalData }) {
             Sorry, your browser doesn’t support embedded videos.
           </video>
         </div>
-        <ul className="list">
+        <ul className={styles.list}>
           {posts.map((post) => (
             <li className={styles.row} key={post.filePath}>
               <Letter className={styles.letter} letter={post.data.title} />

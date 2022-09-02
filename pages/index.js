@@ -8,12 +8,14 @@ import Layout from '../components/Layout/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
 import styles from './home.module.scss';
+import Navigation from '../components/Navigation/Navigation';
 
 export default function Index({ posts, globalData }) {
   const { title, description } = globalData;
   return (
     <Layout>
       <SEO title={title} description={description} />
+      <Navigation items={posts} />
       <Aside heading={true} />
       <main className={styles.main}>
         <div className={styles.videoWrapper}>
@@ -31,7 +33,7 @@ export default function Index({ posts, globalData }) {
         </div>
         <ul className={styles.list}>
           {posts.map((post) => (
-            <li className={styles.row} key={post.filePath}>
+            <li id={post.data.title} className={styles.row} key={post.filePath}>
               <Letter className={styles.letter} letter={post.data.title} />
               <Link
                 as={`/${post.filePath.replace(/\.mdx?$/, '')}`}

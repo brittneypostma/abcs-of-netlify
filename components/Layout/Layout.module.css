@@ -45,8 +45,14 @@
   z-index: -1;
 }
 
-.wrapper {
-  display: flex;
-  flex-wrap: wrap;
+@media (min-width: 50rem) {
+  .wrapper {
+    display: grid;
+    grid-template-areas:
+      'nav nav'
+      'aside main';
+    grid-template-columns: 20rem 1fr;
+    grid-template-rows: auto 1fr;
+    max-height: 100%;
+  }
 }
-

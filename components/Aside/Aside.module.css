@@ -1,16 +1,11 @@
 .aside {
+  gria-area: aside;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  flex-basis: 20rem;
-  flex-grow: 1;
-  background: #03203F;
+  background: #03203f;
+  padding: clamp(1rem, 5vw, 2rem);
   color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  max-height: 100vh;
-  padding: 1rem;
 }
 
 .title {

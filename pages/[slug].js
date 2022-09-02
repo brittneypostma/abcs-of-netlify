@@ -17,9 +17,10 @@ import CustomLink from '../components/CustomLink';
 import Video from '../components/Video';
 import Layout from '../components/Layout/Layout';
 import SEO from '../components/SEO';
-import styles from './letter-page.module.css';
+import styles from './letter-page.module.scss';
 import Letter from '../components/Letter/Letter';
 import Navigation from '../components/Navigation/Navigation';
+import MadeBy from '../components/MadeBy';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -70,31 +71,25 @@ export default function PostPage({
                     nextPost ? 'text-right' : null
                   )}
                 >
-                  <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
-                    Previous
-                  </p>
-                  <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
-                    {prevPost.title}
-                  </h4>
-                  <ArrowIcon className="transform rotate-180 mx-auto md:mr-0 mt-auto" />
+                  <ArrowIcon
+                    className={classnames(styles.paginationArrow, 'rotate-180')}
+                  />
+                  <p className="">Previous</p>
                 </a>
               </Link>
             )}
+            <p className={styles.paginationLetter}>{frontMatter.title}</p>
             {nextPost && (
               <Link href={`/${nextPost.slug}`}>
                 <a className={styles.paginationLink}>
-                  <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
-                    Next
-                  </p>
-                  <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
-                    {nextPost.title}
-                  </h4>
-                  <ArrowIcon className="mt-auto mx-auto md:ml-0" />
+                  <p className="">Next</p>
+                  <ArrowIcon className={styles.paginationArrow} />
                 </a>
               </Link>
             )}
           </div>
         </div>
+        <MadeBy />
       </main>
     </Layout>
   );

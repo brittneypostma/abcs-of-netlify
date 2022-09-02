@@ -27,11 +27,9 @@ export default function Letter({ letter, className }) {
       return;
     }
 
-    boxEl.current.addEventListener('mouseleave', () => {
-      boxEl.current.style.setProperty('--x', 0);
-      boxEl.current.style.setProperty('--y', 0);
-      boxEl.current.style.setProperty('--z', 0);
-    });
+    boxEl.current.style.setProperty('--x', 0);
+    boxEl.current.style.setProperty('--y', 0);
+    boxEl.current.style.setProperty('--z', 0);
   };
 
   const handleMouseDown = (e) => {

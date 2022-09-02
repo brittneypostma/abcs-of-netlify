@@ -4,10 +4,9 @@ import 'prismjs/themes/prism-tomorrow.css';
 function MyApp({ Component, pageProps }) {
   if(typeof window !== 'undefined') {
     (async function () {
-      if (CSS["paintWorklet"] === undefined) {
-        await import("css-paint-polyfill");
+      if (CSS["paintWorklet"] !== undefined) {
+        CSS.paintWorklet.addModule('/photocopy-worklet.js');
       }
-      CSS.paintWorklet.addModule('/photocopy-worklet.js');
     })();
   }
 

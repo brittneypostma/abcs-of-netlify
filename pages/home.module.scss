@@ -8,6 +8,7 @@
 
 .list {
   background-color: var(--color-5);
+  background-image: paint(photoCopy);
 }
 
 .row {
@@ -15,7 +16,6 @@
   display: flex;
   overflow: hidden;
   gap: var(--padding);
-  background-image: paint(photoCopy);
 }
 
 .row + .row {

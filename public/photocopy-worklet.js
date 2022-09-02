@@ -10,9 +10,10 @@ function mulberry32(a) {
 }
 
 
+
 class PhotoCopy {
   paint(ctx, geometry, props) {
-    const random = mulberry32(123456);
+    const random = mulberry32(0);
 
     const density = geometry.width * geometry.height / 1000;
 

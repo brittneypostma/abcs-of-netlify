@@ -1,36 +1,43 @@
 .browser {
-  --padding: 10px;
+  --padding: 0.65rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    'bar'
+    'viewport';
   position: relative;
   width: 100%;
   border: 4px solid black;
-  padding: var(--padding);
   border-radius: 4px;
   box-shadow: var(--padding) var(--padding) 0 #ff6cc0;
-  overflow: hidden;
 }
 
 .browser iframe {
-  width: 100%;
-  height: auto;
+  --size: calc(100% - var(--padding) * 2);
+  margin: auto;
+  width: var(--size);
+  height: var(--size);
   aspect-ratio: 16/9;
   vertical-align: bottom;
 }
 
-.browser::before {
+.browser::before,
+.browser::after {
   content: '';
-  margin: calc(var(--padding) * -1) calc(var(--padding) * -1) var(--padding);
-  display: block;
+  grid-area: bar;
+}
+
+.browser::before {
+  height: 30px;
   background-color: #feb201;
-  height: 28px;
 }
 
 .browser::after {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: var(--padding);
-  width: 12px;
-  height: 12px;
+  --size: 12px;
+  align-self: center;
+  margin-inline-start: var(--padding);
+  width: var(--size);
+  height: var(--size);
   background-color: #ff6cc0;
   border-radius: 50%;
 }

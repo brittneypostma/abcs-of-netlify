@@ -16,6 +16,21 @@ body {
   font-family: Mulish;
 }
 
+:root {
+  --color-1: #03203f;
+  --color-2: #0173fc;
+  --color-3: #8f2ca6;
+  --color-4: #db3c39;
+  --color-5: #feb201;
+  --color-6: #ffffff;
+  --color-7: #0173fc;
+  --color-8: #8f2ca6;
+  --color-9: #db3c39;
+  --color-10: #feb201;
+  --color-11: #03203f;
+  --color-12: #ffffff;
+}
+
 @font-face {
   font-family: Pacaembu;
   src: url(../fonts/pacaembu/PacaembuVar-subset.woff2) format('woff2');

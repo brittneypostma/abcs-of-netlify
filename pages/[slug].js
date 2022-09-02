@@ -55,9 +55,7 @@ export default function PostPage({
         <main className={styles.main}>
           <article className={styles.markdown}>
             {frontMatter.description && (
-              <p className="text-3xl font-semibold mb-4">
-                {frontMatter.description}
-              </p>
+              <h1 className={styles.title}>{frontMatter.description}</h1>
             )}
             <MDXRemote {...source} components={components} />
           </article>

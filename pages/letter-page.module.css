@@ -24,6 +24,14 @@
   width: 100%;
 }
 
+.title {
+  font-size: clamp(2rem, 1rem + 2.9vw, 3.5rem);
+  font-weight: 700;
+  margin: auto;
+  padding: 3.5rem 0;
+  line-height: 1.2;
+}
+
 .main {
   padding: 1.5rem;
   max-width: 65ch;
@@ -35,9 +43,8 @@
   justify-content: space-evenly;
   gap: 3rem;
   padding: 1.5rem;
-  position: absolute;
+  margin: auto;
   width: calc(100% - 20vw);
-  bottom: 0;
 }
 
 .paginationLink {

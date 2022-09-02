@@ -1,7 +1,8 @@
 import { useRef } from 'react';
+import cn from 'classnames';
 import styles from './Letter.module.scss';
 
-export default function Letter({ letter }) {
+export default function Letter({ letter, className }) {
   const boxEl = useRef(null);
 
   const handleMouseMove = (e) => {
@@ -40,7 +41,7 @@ export default function Letter({ letter }) {
   return (
     <div
       ref={boxEl}
-      className={styles.box}
+      className={cn(styles.box, className)}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseOut={handleMouseOut}

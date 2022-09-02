@@ -19,6 +19,7 @@ import Layout, { GradientBackground } from '../components/Layout/Layout';
 import SEO from '../components/SEO';
 import homeStyles from './home.module.css';
 import styles from './letter-page.module.css';
+import Letter from '../components/Letter/Letter';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -49,7 +50,7 @@ export default function PostPage({
       <Aside />
       <article className={homeStyles.main}>
         <header className={styles.header}>
-          <h1 className="text-4xl font-bold">{frontMatter.title}</h1>
+          <Letter className={styles.letter} letter={frontMatter.title} />
         </header>
         <main className={styles.main}>
           <article className="">

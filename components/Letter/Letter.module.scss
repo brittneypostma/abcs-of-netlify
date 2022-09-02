@@ -25,11 +25,10 @@
   --m: 0.4;
 
   position: relative;
-  overflow: hidden;
   flex-shrink: 0;
-  inline-size: var(--box-size);
-  aspect-ratio: 0.7;
-  background-color: #0173fc;
+  font-size: calc(var(--box-size) * 2);
+  width: var(--box-size);
+  height: 100%;
   transform: translateZ(0);
   transform-style: preserve-3d;
   transition: background-color 200ms ease-out;
@@ -55,7 +54,6 @@
 }
 
 .wrapper {
-  font-size: calc(var(--box-size) * 2);
   transform-origin: center;
   transform-style: preserve-3d;
   transition: transform calc(var(--duration) * 1.5) var(--bounce);
@@ -124,10 +122,6 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .box:hover {
-    background-color: #03203f;
-  }
-
   .box:hover .wrapper {
     --translate: rotateX(calc(var(--y) / var(--t) * -1deg))
       rotateY(calc(var(--x) / var(--t) * 1deg));

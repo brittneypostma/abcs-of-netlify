@@ -19,7 +19,7 @@ export default function Index({ posts, globalData }) {
         <ul className="list">
           {posts.map((post) => (
             <li className={styles.row} key={post.filePath}>
-              <Letter letter={post.data.title} />
+              <Letter className={styles.letter} letter={post.data.title} />
               <Link
                 as={`/${post.filePath.replace(/\.mdx?$/, '')}`}
                 href={`/[slug]`}

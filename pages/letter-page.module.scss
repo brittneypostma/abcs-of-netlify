@@ -38,25 +38,31 @@
 
 .paginationWrapper {
   display: flex;
-  justify-content: space-evenly;
-  gap: 3rem;
+  justify-content: center;
+  gap: 1rem;
   padding: 1.5rem;
   margin: 2.5rem auto;
-  width: calc(100% - 50vw);
 }
 
 .paginationLink {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.paginationLink span {
+  color: #0173fc;
 }
 
 .paginationLetter {
   font-family: Bungee Inline;
-  font-size: 5rem;
+  font-size: 0.9rem;
+  font-size: clamp(3rem, 10vw, 5rem);
   color: var(--color-1);
+  user-select: none;
 }
 
 .paginationArrow path {
- color: var(--color-2);
+  color: var(--color-2);
 }

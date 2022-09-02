@@ -71,10 +71,9 @@ export default function PostPage({
                     nextPost ? 'text-right' : null
                   )}
                 >
-                  <ArrowIcon
-                    className={classnames(styles.paginationArrow, 'rotate-180')}
-                  />
-                  <p className="">Previous</p>
+                  <p>
+                    <span aria-hidden="true">&lt;--</span> Previous
+                  </p>
                 </a>
               </Link>
             )}
@@ -82,8 +81,9 @@ export default function PostPage({
             {nextPost && (
               <Link href={`/${nextPost.slug}`}>
                 <a className={styles.paginationLink}>
-                  <p className="">Next</p>
-                  <ArrowIcon className={styles.paginationArrow} />
+                  <p>
+                    Next <span aria-hidden="true">--&gt;</span>
+                  </p>
                 </a>
               </Link>
             )}

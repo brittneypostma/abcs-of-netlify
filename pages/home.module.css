@@ -24,6 +24,17 @@
   aspect-ratio: 0.7;
 }
 
+.video {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+}
+
+.videoWrapper {
+  background-color: #062341;
+  width: 100%;
+}
+
 .link {
   flex-grow: 1;
   display: flex;

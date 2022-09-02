@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getPosts } from '../utils/mdx-utils';
 import Letter from '../components/Letter/Letter';
 import Aside from '../components/Aside/Aside';
+import ArrowIcon from '../components/ArrowIcon';
 import Layout from '../components/Layout/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
@@ -38,7 +39,9 @@ export default function Index({ posts, globalData }) {
                 href={`/[slug]`}
               >
                 <a className={styles.link}>
-                  {post.data.description ? post.data.description : null}
+                  <span className="flex items-center">
+                    {post.data.description ? post.data.description : null}
+                  </span>
                 </a>
               </Link>
             </li>

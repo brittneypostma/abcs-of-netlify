@@ -1,10 +1,7 @@
 .main {
   grid-area: main;
   overflow-y: auto;
-}
-
-.wrapper {
-  background-image: paint(photoCopy);
+  position: relative;
 }
 
 .markdown {
@@ -44,6 +41,22 @@
   justify-content: space-evenly;
   gap: 3rem;
   padding: 1.5rem;
-  margin: auto;
-  width: calc(100% - 20vw);
+  margin: 2.5rem auto;
+  width: calc(100% - 50vw);
+}
+
+.paginationLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.paginationLetter {
+  font-family: Bungee Inline;
+  font-size: 5rem;
+  color: var(--color-1);
+}
+
+.paginationArrow path {
+ color: var(--color-2);
 }

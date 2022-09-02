@@ -1,0 +1,11 @@
+.netlifyGem {
+  width: 1.5rem;
+  height: auto;
+  transition: transform 100ms ease-out;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .netlifyGem:hover {
+    transform: scale(1.2);
+  }
+}

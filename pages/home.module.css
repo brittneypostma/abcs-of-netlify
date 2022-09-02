@@ -10,6 +10,7 @@
   display: flex;
   overflow: hidden;
   gap: var(--padding);
+  background-image: paint(photoCopy);
 }
 
 .row + .row {

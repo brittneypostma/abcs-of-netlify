@@ -21,6 +21,11 @@
 
 .row:nth-child(even) {
   flex-direction: row-reverse;
+
+  a {
+    display: flex;
+    flex-direction: row-reverse;
+  }
 }
 
 .letter {

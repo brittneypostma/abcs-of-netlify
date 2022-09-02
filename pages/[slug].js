@@ -53,7 +53,7 @@ export default function PostPage({
           <Letter className={styles.letter} letter={frontMatter.title} />
         </header>
         <main className={styles.main}>
-          <article className="">
+          <article className={styles.markdown}>
             {frontMatter.description && (
               <p className="text-3xl font-semibold mb-4">
                 {frontMatter.description}

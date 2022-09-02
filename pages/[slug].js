@@ -46,7 +46,7 @@ export default function PostPage({
   return (
     <Layout>
       <SEO
-        title={`${frontMatter.description} - ${globalData.title}`}
+        title={`${frontMatter.description} | ${globalData.title}`}
         description={globalData.description}
       />
       <Navigation items={posts} hrefType="url" />

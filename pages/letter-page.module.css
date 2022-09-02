@@ -1,8 +1,12 @@
+.main {
+  grid-area: main;
+  overflow-y: auto;
+}
+
 .article {
-  flex-basis: 0;
-  flex-grow: 999;
-  min-inline-size: 65%;
-  min-height: 100vh;
+  padding: 1.5rem;
+  max-width: 65ch;
+  margin-inline: auto;
 }
 
 .markdown {
@@ -24,10 +28,12 @@
   width: 100%;
 }
 
-.main {
-  padding: 1.5rem;
-  max-width: 65ch;
-  margin-inline: auto;
+.title {
+  font-size: clamp(2rem, 1rem + 2.9vw, 3.5rem);
+  font-weight: 700;
+  margin: auto;
+  padding: 3.5rem 0;
+  line-height: 1.2;
 }
 
 .paginationWrapper {
@@ -35,9 +41,8 @@
   justify-content: space-evenly;
   gap: 3rem;
   padding: 1.5rem;
-  position: absolute;
+  margin: auto;
   width: calc(100% - 20vw);
-  bottom: 0;
 }
 
 .paginationLink {

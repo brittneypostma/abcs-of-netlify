@@ -7,7 +7,7 @@ import Description from '../components/Description';
 import Layout from '../components/Layout/Layout';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
-import styles from './home.module.css';
+import styles from './home.module.scss';
 import Navigation from '../components/Navigation/Navigation';
 
 export default function Index({ posts, globalData }) {

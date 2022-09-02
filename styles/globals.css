@@ -12,6 +12,12 @@ h6 {
   font-family: Pacaembu;
 }
 
+html,
+body,
+#__next {
+  height: 100%;
+}
+
 body {
   font-family: Mulish;
 }

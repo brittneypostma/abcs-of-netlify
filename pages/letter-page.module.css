@@ -1,9 +1,21 @@
+.article {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 65%;
+  min-height: 100vh;
+}
+
+.markdown {
+  display: grid;
+  gap: 1.5rem;
+}
+
 .header {
   display: flex;
   justify-content: center;
   align-items: center;
   height: max(25vh, 10rem);
-  background-color: rebeccapurple;
+  background-color: var(--color-5);
   color: white;
   overflow: hidden;
 }

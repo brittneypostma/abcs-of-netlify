@@ -1,7 +1,5 @@
 import '../styles/globals.css';
 import 'prismjs/themes/prism-tomorrow.css';
-import dynamic from 'next/dynamic'
-
 
 function MyApp({ Component, pageProps }) {
   if(typeof window !== 'undefined') {
@@ -15,7 +13,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <span className="theme-bejamas" />
       <Component {...pageProps} />
     </>
   );

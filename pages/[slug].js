@@ -7,6 +7,7 @@ import {
 } from '../utils/mdx-utils';
 
 import { MDXRemote } from 'next-mdx-remote';
+import classnames from 'classnames';
 import Head from 'next/head';
 import Link from 'next/link';
 import Aside from '../components/Aside/Aside';
@@ -17,7 +18,6 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Layout, { GradientBackground } from '../components/Layout/Layout';
 import SEO from '../components/SEO';
-import homeStyles from './home.module.css';
 import styles from './letter-page.module.css';
 import Letter from '../components/Letter/Letter';
 
@@ -48,12 +48,12 @@ export default function PostPage({
         description={frontMatter.description}
       />
       <Aside />
-      <article className={homeStyles.main}>
+      <article className={styles.article}>
         <header className={styles.header}>
           <Letter className={styles.letter} letter={frontMatter.title} />
         </header>
         <main className={styles.main}>
-          <article className="">
+          <article className={styles.markdown}>
             {frontMatter.description && (
               <p className="text-3xl font-semibold mb-4">
                 {frontMatter.description}
@@ -66,9 +66,10 @@ export default function PostPage({
           {prevPost && (
             <Link href={`/${prevPost.slug}`}>
               <a
-                className={`${styles.paginationLink} ${
+                className={classnames(
+                  styles.paginationLink,
                   nextPost ? 'text-right' : null
-                }`}
+                )}
               >
                 <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
                   Previous

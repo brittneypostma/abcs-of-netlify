@@ -54,44 +54,46 @@ export default function PostPage({
         <header className={styles.header}>
           <Letter className={styles.letter} letter={frontMatter.title} />
         </header>
-        <article className={styles.markdown}>
-          {frontMatter.description && (
-            <h1 className={styles.title}>{frontMatter.description}</h1>
-          )}
-          <MDXRemote {...source} components={components} />
-        </article>
-        <div className={styles.paginationWrapper}>
-          {prevPost && (
-            <Link href={`/${prevPost.slug}`}>
-              <a
-                className={classnames(
-                  styles.paginationLink,
-                  nextPost ? 'text-right' : null
-                )}
-              >
-                <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
-                  Previous
-                </p>
-                <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
-                  {prevPost.title}
-                </h4>
-                <ArrowIcon className="transform rotate-180 mx-auto md:mr-0 mt-auto" />
-              </a>
-            </Link>
-          )}
-          {nextPost && (
-            <Link href={`/${nextPost.slug}`}>
-              <a className={styles.paginationLink}>
-                <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
-                  Next
-                </p>
-                <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
-                  {nextPost.title}
-                </h4>
-                <ArrowIcon className="mt-auto mx-auto md:ml-0" />
-              </a>
-            </Link>
-          )}
+        <div className={styles.wrapper}>
+          <div className={styles.markdown}>
+            {frontMatter.description && (
+              <h1 className={styles.title}>{frontMatter.description}</h1>
+            )}
+            <MDXRemote {...source} components={components} />
+          </div>
+          <div className={styles.paginationWrapper}>
+            {prevPost && (
+              <Link href={`/${prevPost.slug}`}>
+                <a
+                  className={classnames(
+                    styles.paginationLink,
+                    nextPost ? 'text-right' : null
+                  )}
+                >
+                  <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
+                    Previous
+                  </p>
+                  <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
+                    {prevPost.title}
+                  </h4>
+                  <ArrowIcon className="transform rotate-180 mx-auto md:mr-0 mt-auto" />
+                </a>
+              </Link>
+            )}
+            {nextPost && (
+              <Link href={`/${nextPost.slug}`}>
+                <a className={styles.paginationLink}>
+                  <p className="uppercase text-gray-500 mb-4 dark:text-white dark:opacity-60">
+                    Next
+                  </p>
+                  <h4 className="text-2xl text-gray-700 mb-6 dark:text-white">
+                    {nextPost.title}
+                  </h4>
+                  <ArrowIcon className="mt-auto mx-auto md:ml-0" />
+                </a>
+              </Link>
+            )}
+          </div>
         </div>
       </main>
     </Layout>

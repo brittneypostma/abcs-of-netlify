@@ -52,3 +52,7 @@
   font-weight: 700;
   color: var(--color-1);
 }
+
+.link:focus-visible {
+  outline-offset: -12px;
+}

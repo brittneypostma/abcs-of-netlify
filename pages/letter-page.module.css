@@ -1,13 +1,13 @@
 .main {
   grid-area: main;
   overflow-y: auto;
-  background-image: paint(photoCopy);
 }
 
 .article {
   padding: 1.5rem;
   max-width: 65ch;
   margin-inline: auto;
+  background-image: paint(photoCopy);
 }
 
 .markdown {

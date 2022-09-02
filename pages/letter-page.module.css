@@ -1,6 +1,7 @@
 .main {
   grid-area: main;
   overflow-y: auto;
+  background-image: paint(photoCopy);
 }
 
 .article {

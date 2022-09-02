@@ -47,7 +47,3 @@
   margin: auto;
   width: calc(100% - 20vw);
 }
-
-.paginationLink {
-  flex: 1;
-}

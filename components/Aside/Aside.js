@@ -11,7 +11,7 @@ export default function Header({ heading }) {
     const ctx = canvas.getContext('2d');
 
     createLayout('aside', {
-      minContentGap: 1,
+      minContentGap: 2,
       minPatternGap: 8,
       cellDimensions: {
         min: 4,

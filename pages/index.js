@@ -16,7 +16,7 @@ export default function Index({ posts, globalData }) {
       <SEO title={title} description={description} />
       <Navigation items={posts} hrefType="anchor" />
       <Aside heading={true} />
-      <main className={styles.main}>
+      <main id="main" className={styles.main}>
         <div className={styles.videoWrapper}>
           <video
             width="100%"

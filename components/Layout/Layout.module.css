@@ -57,3 +57,25 @@
     max-height: 100vh;
   }
 }
+
+.skip {
+  position: fixed;
+  top: 3rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.65rem 2rem;
+  color: white;
+  background: #0173fc;
+  z-index: 3;
+}
+
+.skip:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

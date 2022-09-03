@@ -67,7 +67,7 @@ export default function PostPage({
       />
       <Navigation items={posts} hrefType="url" />
       <Aside />
-      <main ref={mainRef} className={styles.main}>
+      <main id="main" className={styles.main} ref={mainRef}>
         <header className={styles.header}>
           <Letter className={styles.letter} letter={frontMatter.title} />
         </header>

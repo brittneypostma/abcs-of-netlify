@@ -49,5 +49,12 @@ export default function Layout({ children }) {
     handleSystemThemeChange();
   }, []);
 
-  return <div className={styles.wrapper}>{children}</div>;
+  return (
+    <div className={styles.wrapper}>
+      <a className={styles.skip} href="#main">
+        Skip to main content
+      </a>
+      {children}
+    </div>
+  );
 }

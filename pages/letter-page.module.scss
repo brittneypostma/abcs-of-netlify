@@ -36,18 +36,36 @@
   line-height: 1.2;
 }
 
-.paginationWrapper {
+.paginationNav {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem;
+}
+
+.paginationMenu {
+  position: relative;
+  display: inline-flex;
   margin: 2.5rem auto;
+}
+
+.paginationItem {
+  position: absolute;
+  top: 50%;
+  white-space: nowrap;
+  transform: translateY(-50%);
+}
+
+.paginationItem:first-child {
+  right: 100%;
+}
+
+.paginationItem:last-child {
+  left: 100%;
 }
 
 .paginationLink {
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
+  gap: 0.5rem;
   font-family: 'Roboto Mono', monospace;
 }
 
@@ -56,6 +74,7 @@
 }
 
 .paginationLetter {
+  padding: 1.5rem;
   font-family: Bungee Inline;
   font-size: 0.9rem;
   font-size: clamp(3rem, 10vw, 5rem);

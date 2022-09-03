@@ -78,32 +78,36 @@ export default function PostPage({
             )}
             <MDXRemote {...source} components={components} />
           </div>
-          <div className={styles.paginationWrapper}>
-            {prevPost && (
-              <Link href={`/${prevPost.slug}`}>
-                <a
-                  className={classnames(
-                    styles.paginationLink,
-                    nextPost ? 'text-right' : null
-                  )}
-                >
-                  <p>
-                    <span aria-hidden="true">&lt;--</span> Previous
-                  </p>
-                </a>
-              </Link>
-            )}
-            <p className={styles.paginationLetter}>{frontMatter.title}</p>
-            {nextPost && (
-              <Link href={`/${nextPost.slug}`}>
-                <a className={styles.paginationLink}>
-                  <p>
-                    Next <span aria-hidden="true">--&gt;</span>
-                  </p>
-                </a>
-              </Link>
-            )}
-          </div>
+          <nav className={styles.paginationNav} aria-label="Previous/Next Page">
+            <ul className={styles.paginationMenu}>
+              <li className={styles.paginationItem}>
+                {prevPost && (
+                  <Link href={`/${prevPost.slug}`}>
+                    <a
+                      className={classnames(
+                        styles.paginationLink,
+                        nextPost ? 'text-right' : null
+                      )}
+                    >
+                      <span aria-hidden="true">&lt;--</span> Previous
+                    </a>
+                  </Link>
+                )}
+              </li>
+              <li className={styles.paginationLetter} aria-hidden="true">
+                {frontMatter.title}
+              </li>
+              <li className={styles.paginationItem}>
+                {nextPost && (
+                  <Link href={`/${nextPost.slug}`}>
+                    <a className={styles.paginationLink}>
+                      Next <span aria-hidden="true">--&gt;</span>
+                    </a>
+                  </Link>
+                )}
+              </li>
+            </ul>
+          </nav>
         </div>
         <MadeBy />
       </main>

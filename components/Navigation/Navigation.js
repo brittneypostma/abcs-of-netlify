@@ -16,7 +16,7 @@ function NavigationLink({ item, hrefType }) {
         className={styles.link}
         aria-current={ariaCurrent}
       >
-        {item.data.title}
+        <span className={styles.text}>{item.data.title}</span>
       </a>
     </li>
   );

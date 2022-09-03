@@ -12,12 +12,11 @@
   display: flex;
   justify-content: space-between;
   overflow-x: auto;
-  overflow-y: hidden;
   overscroll-behavior: contain;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .item:hover .link:not(.logo) {
+  .item:hover .text {
     transform: scale(1.4);
   }
 }
@@ -35,6 +34,10 @@
   font-weight: 700;
   font-family: 'Pacaembu';
   color: white;
+}
+
+.text {
+  display: block;
   transition: transform 100ms ease-out;
 }
 

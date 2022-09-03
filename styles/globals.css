@@ -16,6 +16,11 @@ h6 {
   height: 100%;
 }
 
+a:not([class]) {
+  color: #0173fc;
+  text-decoration: underline;
+}
+
 html {
   scroll-padding-top: 48px;
 }

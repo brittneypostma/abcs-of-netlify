@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useEffect } from 'react';
+import { Fragment, useEffect } from 'react';
 import styles from './Aside.module.css';
 import { createLayout } from '@georgedoescode/nugget';
 import { createPattern } from '../../utils/create-pattern';
@@ -35,23 +35,20 @@ export default function Header({ heading }) {
       },
     });
   });
+
+  const Heading = heading ? 'h1' : Fragment;
+
   return (
     <aside className={styles.aside}>
-      <Link href="/">
-        {heading ? (
-          <a>
-            <h1 className={styles.title}>
-              <span data-track-bounds>ABCs</span> <br />
-              <span data-track-bounds>of Netlify</span>
-            </h1>
-          </a>
-        ) : (
+      <Heading>
+        <Link href="/">
           <a className={styles.title}>
-            <span data-track-bounds>ABCs</span> <br />
+            <span data-track-bounds>ABCs</span>
+            <br />
             <span data-track-bounds>of Netlify</span>
           </a>
-        )}
-      </Link>
+        </Link>
+      </Heading>
     </aside>
   );
 }

@@ -9,7 +9,7 @@
 }
 
 .title {
-  display: inline-block;
+  display: block;
   font-weight: 600;
   font-family: Pacaembu;
   font-size: clamp(1rem, 5vw, 2.5rem);

@@ -33,13 +33,13 @@ export default function Index({ posts, globalData }) {
         <ul className={styles.list}>
           {posts.map((post) => (
             <li id={post.data.title} className={styles.row} key={post.filePath}>
-              <Letter className={styles.letter} letter={post.data.title} />
               <Link
                 as={`/${post.filePath.replace(/\.mdx?$/, '')}`}
                 href={`/[slug]`}
               >
                 <a className={styles.link}>
-                  <span className="flex items-center">
+                  <Letter className={styles.letter} letter={post.data.title} />
+                  <span className={styles.linkText}>
                     {post.data.description ? post.data.description : null}
                   </span>
                 </a>

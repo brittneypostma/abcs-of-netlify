@@ -14,12 +14,9 @@
 }
 
 .browser iframe {
-  --size: calc(100% - var(--padding) * 2);
-  margin: auto;
-  width: var(--size);
-  height: var(--size);
+  width: 100%;
+  height: auto;
   aspect-ratio: 16/9;
-  vertical-align: bottom;
 }
 
 .browser::before,
@@ -41,6 +38,10 @@
   height: var(--size);
   background-color: #ff6cc0;
   border-radius: 50%;
+}
+
+.inner {
+  padding: var(--padding);
 }
 
 .browser + * {

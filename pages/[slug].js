@@ -12,7 +12,6 @@ import classnames from 'classnames';
 import Head from 'next/head';
 import Link from 'next/link';
 import Aside from '../components/Aside/Aside';
-import ArrowIcon from '../components/ArrowIcon';
 import CustomLink from '../components/CustomLink';
 import Video from '../components/Video';
 import Layout from '../components/Layout/Layout';
@@ -21,6 +20,8 @@ import styles from './letter-page.module.scss';
 import Letter from '../components/Letter/Letter';
 import Navigation from '../components/Navigation/Navigation';
 import MadeBy from '../components/MadeBy';
+import { useEffect, useRef } from 'react';
+import { useRouter } from 'next/router';
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -43,6 +44,21 @@ export default function PostPage({
   nextPost,
   globalData,
 }) {
+  const { asPath } = useRouter();
+  const mainRef = useRef(null);
+
+  useEffect(() => {
+    if (!mainRef?.current) {
+      return;
+    }
+
+    mainRef.current.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'auto',
+    });
+  }, [asPath]);
+
   return (
     <Layout>
       <SEO
@@ -51,7 +67,7 @@ export default function PostPage({
       />
       <Navigation items={posts} hrefType="url" />
       <Aside />
-      <main className={styles.main}>
+      <main ref={mainRef} className={styles.main}>
         <header className={styles.header}>
           <Letter className={styles.letter} letter={frontMatter.title} />
         </header>

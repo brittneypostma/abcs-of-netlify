@@ -61,6 +61,10 @@
   line-height: 1.2;
 }
 
+.link:hover {
+  text-decoration: underline;
+}
+
 .link:focus-visible {
   outline-offset: -12px;
 }

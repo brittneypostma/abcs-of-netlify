@@ -12,8 +12,6 @@ h6 {
   font-family: Pacaembu;
 }
 
-html,
-body,
 #__next {
   height: 100%;
 }
@@ -30,6 +28,7 @@ html {
 
 body {
   font-family: Mulish;
+  min-height: 100%;
 }
 
 :root {

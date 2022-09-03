@@ -1,7 +1,7 @@
-export default function MadeBy({ className }) {
+export default function MadeBy() {
   return (
     <svg
-      style={{ position: 'absolute', right: 0 }}
+      style={{ marginInlineStart: 'auto' }}
       width={241}
       height={162}
       fill="none"

@@ -2,6 +2,8 @@
   grid-area: main;
   overflow-y: auto;
   position: relative;
+  display: grid;
+  align-items: stretch;
 }
 
 .markdown {

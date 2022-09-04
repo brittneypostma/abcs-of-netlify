@@ -1,27 +1,27 @@
-import { getGlobalData } from '../utils/global-data';
+import { getGlobalData } from '../utils/global-data'
 import {
   getPosts,
   getNextPostBySlug,
   getPostBySlug,
   getPreviousPostBySlug,
   postFilePaths,
-} from '../utils/mdx-utils';
+} from '../utils/mdx-utils'
 
-import { MDXRemote } from 'next-mdx-remote';
-import classnames from 'classnames';
-import Head from 'next/head';
-import Link from 'next/link';
-import Aside from '../components/Aside/Aside';
-import CustomLink from '../components/CustomLink';
-import Video from '../components/Video';
-import Layout from '../components/Layout/Layout';
-import SEO from '../components/SEO';
-import styles from './letter-page.module.scss';
-import Letter from '../components/Letter/Letter';
-import Navigation from '../components/Navigation/Navigation';
-import MadeBy from '../components/MadeBy';
-import { useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { MDXRemote } from 'next-mdx-remote'
+import classnames from 'classnames'
+import Head from 'next/head'
+import Link from 'next/link'
+import Aside from '../components/Aside/Aside'
+import CustomLink from '../components/CustomLink'
+import Video from '../components/Video'
+import Layout from '../components/Layout/Layout'
+import SEO from '../components/SEO'
+import styles from './letter-page.module.scss'
+import Letter from '../components/Letter/Letter'
+import Navigation from '../components/Navigation/Navigation'
+import MadeBy from '../components/MadeBy'
+import { useEffect, useRef } from 'react'
+import { useRouter } from 'next/router'
 
 // Custom components/renderers to pass to MDX.
 // Since the MDX files aren't loaded by webpack, they have no knowledge of how
@@ -34,7 +34,7 @@ const components = {
   // See the notes in README.md for more details.
   Head,
   Video,
-};
+}
 
 export default function PostPage({
   posts,
@@ -44,26 +44,27 @@ export default function PostPage({
   nextPost,
   globalData,
 }) {
-  const { asPath } = useRouter();
-  const mainRef = useRef(null);
+  const { asPath } = useRouter()
+  const mainRef = useRef(null)
 
   useEffect(() => {
     if (!mainRef?.current) {
-      return;
+      return
     }
 
     mainRef.current.scroll({
       top: 0,
       left: 0,
       behavior: 'auto',
-    });
-  }, [asPath]);
+    })
+  }, [asPath])
 
   return (
     <Layout>
       <SEO
         title={`${frontMatter.description} | ${globalData.title}`}
-        description={globalData.description}
+        description={frontMatter.meta}
+        ogImage={`${frontMatter.title}.png`}
       />
       <Navigation items={posts} hrefType="url" />
       <Aside />
@@ -112,15 +113,15 @@ export default function PostPage({
         <MadeBy />
       </main>
     </Layout>
-  );
+  )
 }
 
 export const getStaticProps = async ({ params }) => {
-  const posts = getPosts();
-  const globalData = getGlobalData();
-  const { mdxSource, data } = await getPostBySlug(params.slug);
-  const prevPost = getNextPostBySlug(params.slug);
-  const nextPost = getPreviousPostBySlug(params.slug);
+  const posts = getPosts()
+  const globalData = getGlobalData()
+  const { mdxSource, data } = await getPostBySlug(params.slug)
+  const prevPost = getNextPostBySlug(params.slug)
+  const nextPost = getPreviousPostBySlug(params.slug)
 
   return {
     props: {
@@ -131,18 +132,18 @@ export const getStaticProps = async ({ params }) => {
       prevPost,
       nextPost,
     },
-  };
-};
+  }
+}
 
 export const getStaticPaths = async () => {
   const paths = postFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ''))
     // Map the path into the static paths object required by Next.js
-    .map((slug) => ({ params: { slug } }));
+    .map((slug) => ({ params: { slug } }))
 
   return {
     paths,
     fallback: false,
-  };
-};
+  }
+}

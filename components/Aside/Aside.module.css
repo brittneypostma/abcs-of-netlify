@@ -1,15 +1,17 @@
 .aside {
+  background: #03203f;
+  padding: clamp(1rem, 5vw, 2rem);
+  color: white;
+  height: 100%;
+}
+
+.heading { 
   grid-area: aside;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
-  background: #03203f;
-  padding: clamp(1rem, 5vw, 2rem);
-  color: white;
-}
-
-.title {
-  display: block;
+  height: 100%;
+  position: relative;
   font-weight: 600;
   font-family: Pacaembu;
   font-size: clamp(1rem, 5vw, 2.5rem);

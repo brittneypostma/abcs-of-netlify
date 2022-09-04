@@ -3,6 +3,21 @@
 @tailwind utilities;
 @tailwind variants;
 
+
+body {
+  font-family: Mulish;
+  min-height: 100vh;
+}
+
+#__next {
+  height: 100vh;
+}
+
+a:not([class]) {
+  color: #0173fc;
+  text-decoration: underline;
+}
+
 h1,
 h2,
 h3,
@@ -10,15 +25,6 @@ h4,
 h5,
 h6 {
   font-family: Pacaembu;
-}
-
-#__next {
-  height: 100%;
-}
-
-a:not([class]) {
-  color: #0173fc;
-  text-decoration: underline;
 }
 
 html {
@@ -31,10 +37,6 @@ html {
   }
 }
 
-body {
-  font-family: Mulish;
-  min-height: 100%;
-}
 
 :root {
   --color-1: #03203f;

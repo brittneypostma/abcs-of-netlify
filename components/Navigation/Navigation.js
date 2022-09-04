@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import cn from 'classnames';
-import styles from './Navigation.module.scss';
-import NetlifyGem from '../NetlifyGem/NetlifyGem';
-import { useRouter } from 'next/router';
+import Link from 'next/link'
+import cn from 'classnames'
+import styles from './Navigation.module.scss'
+import NetlifyGem from '../NetlifyGem/NetlifyGem'
+import { useRouter } from 'next/router'
 
 function NavigationLink({ item, hrefType }) {
-  const { asPath } = useRouter();
-  const path = '/' + item.filePath.replace(/\.mdx?$/, '');
-  const ariaCurrent = path === asPath ? 'page' : undefined;
+  const { asPath } = useRouter()
+  const path = '/' + item.filePath.replace(/\.mdx?$/, '')
+  const ariaCurrent = path === asPath ? 'page' : undefined
 
   return (
     <li className={styles.item} key={item.data.title}>
@@ -19,7 +19,7 @@ function NavigationLink({ item, hrefType }) {
         <span className={styles.text}>{item.data.title}</span>
       </a>
     </li>
-  );
+  )
 }
 
 export default function Navigation({ items, hrefType }) {
@@ -27,11 +27,9 @@ export default function Navigation({ items, hrefType }) {
     <nav className={styles.nav}>
       <ul className={styles.menu}>
         <li className={styles.item}>
-          <Link href="/">
-            <a className={cn(styles.link, styles.logo)}>
-              <NetlifyGem />
-            </a>
-          </Link>
+          <a rel="prefetch" href="https://www.netlify.com/" className={cn(styles.link, styles.logo)}>
+            <NetlifyGem />
+          </a>
         </li>
         {items.map((item) => (
           <NavigationLink
@@ -42,5 +40,5 @@ export default function Navigation({ items, hrefType }) {
         ))}
       </ul>
     </nav>
-  );
+  )
 }

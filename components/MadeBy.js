@@ -1,7 +1,7 @@
 export default function MadeBy() {
   return (
     <svg
-      style={{ marginInlineStart: 'auto' }}
+      style={{ marginInlineStart: 'auto', alignSelf: 'end' }}
       width={241}
       height={162}
       fill="none"
@@ -48,5 +48,5 @@ export default function MadeBy() {
         />
       </defs>
     </svg>
-  );
+  )
 }
